@@ -1,0 +1,6 @@
+<div id="<%= dom_id post %>">
+  <h3>
+    <%= link_to_unless_current post.title, post_path(post) %>
+  </h3>
+  <%= post.body %>
+</div>
