@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= request.authorization.present? %>
     <%= yield %>
   </body>
 </html>
