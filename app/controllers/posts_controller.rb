@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  # http_basic_authenticate_with name: 'superails', password: '123', except: %i[index show]
+  http_basic_authenticate_with name: Rails.application.credentials.dig(:http_auth, :name).to_s,
+                               password: Rails.application.credentials.dig(:http_auth, :pass).to_s,
+                               except: %i[index show]
 
   def index
     @posts = Post.all
